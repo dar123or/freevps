@@ -8,12 +8,12 @@ sudo apt update -y > /dev/null 2>&1
 echo "Installing QEMU (2-3m)..."
 sudo apt install qemu-system-x86 curl -y > /dev/null 2>&1
 echo Downloading Windows Disk...
-curl -L -o w8x64.img https://bit.ly/akuhnetw8x64
-echo "Windows 7 x86 Lite On Google Colab"
+curl -L -o Win10_21H2_English_x32.iso https://software-download.microsoft.com/pr/Win10_21H2_English_x32.iso?t=7c15efcf-dc3e-45b3-9a52-d94b8b4b5c5b&e=1644720342&h=c672b37972bb48ef8fdea1be640e34ad
+echo "Windows 10 On Google Colab"
 echo Your VNC IP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "Note: Use Right-Click Or Ctrl+C To Copy"
 echo "Please Keep Colab Tab Open, Maximum Time 12h"
-echo Script by fb.com/thuong.hai.581
-sudo qemu-system-x86_64 -vnc :0 -hda w8x64  -smp cores=4  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
+echo Script by Aji
+sudo qemu-system-x86_64 -vnc :0 -hda Win10_21H2_English_x32.iso  -smp cores=4  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
 sleep 43200
