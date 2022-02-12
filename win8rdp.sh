@@ -1,7 +1,7 @@
 echo "===================================="
 echo "Download windows files"
 echo "===================================="
-curl -L -o w8x64.img https://bit.ly/akuhnetw8x64
+curl -L -o w8x64.img https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.4/providers/qemu.box
 echo "===================================="
 echo "Download ngrok"
 echo "===================================="
@@ -33,4 +33,4 @@ echo "===================================="
 echo "===================================="
 qemu-system-x86_64 -hda w8x64.img -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic /dev/null 2>&1
 sleep 43200
-sleep 43200
+
