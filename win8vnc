@@ -7,15 +7,14 @@ echo Please wait for installing...
 sudo apt update -y > /dev/null 2>&1
 echo "Installing QEMU (2-3m)..."
 sudo apt install qemu-system-x86 curl -y > /dev/null 2>&1
-sudo apt install qemu-kvm -y
 echo Downloading Windows Disk...
-curl -L -o vista.qcow2 https://archive.org/download/SomeMoreWindows8Betas/Windows%208%20Build%208161%20x64.iso
+curl -L -o vista.qcow2 https://offlineinstallersofts.com/download-starting?url=http://app.beg.inf.br/pub/iso/microsoft/en_windows_server_2012_x64_dvd_915478.iso
 echo "Windows 8 x86 Lite On Google Colab"
 echo Your Vnc IP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "Note: Use Right-Click Or Ctrl+C To Copy"
 echo "Please Keep Colab Tab Open, Maximum Time 12h"
-echo Script by fb.com/thuong.hai.581
+echo Script by AJI MAGALIH
 sudo qemu-system-x86_64 -vnc :0 -hda vista.qcow2  -smp cores=2  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
 sleep 43200
 
