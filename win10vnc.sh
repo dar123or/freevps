@@ -15,6 +15,6 @@ curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*publ
 echo "Note: Use Right-Click Or Ctrl+C To Copy"
 echo "Please Keep Colab Tab Open, Maximum Time 12h"
 echo Script by Aji
-sudo qemu-system-x86_64 -vnc :0 -hda Win10_21H2_English_x32.iso  -smp cores=4  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
+sudo qemu-system-x86_64 -vnc :0 -hda w7x86.img  -smp cores=4  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
 sleep 43200
 
