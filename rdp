@@ -2,7 +2,7 @@
 # Make Instance Ready for Remote Desktop or RDP
 apt-get update
 echo "Download windows files"
-wget -O andro.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.7/providers/qemu.box
+wget -O andro.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.3/providers/qemu.box
 echo "Wait..."
 echo "I m Working Now.."
 mv win2022 win2022.img
