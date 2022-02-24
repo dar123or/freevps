@@ -8,14 +8,13 @@ sudo apt update -y > /dev/null 2>&1
 echo "Installing QEMU (2-3m)..."
 sudo apt install qemu-system-x86 curl -y > /dev/null 2>&1
 echo Downloading Windows Disk...
-curl -L -o android.qcow2 https://software.download.prss.microsoft.com/sg/Win8.1_SingleLang_EnglishInternational_x64.iso?t=baf0eadc-1bb6-4061-b12f-976a2dbb4e07&e=1645328821&h=c98bd6c1a2efd4df74dbd5d5786aa82db2d8047e372ebf80679cb7d6c9ce3252
+curl -L -o android.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.1.0/providers/qemu.box
 echo "Windows 8 x86 Lite On Google Colab"
 echo Your Vnc IP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "Note: Use Right-Click Or Ctrl+C To Copy"
 echo "Please Keep Colab Tab Open, Maximum Time 12h"
-echo Script by AJI MAGALIH
-sudo qemu-img create -f qcow2 windows_name.img 200G
-sudo qemu-system-x86_64 windows_name.img -vnc :0 -boot d -cdrom "android.qcow2"  -smp cores=2  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
+echo Script by Jia
+sudo qemu-system-x86_64 -vnc :0 -boot d -cdrom "android.qcow2"  -smp cores=2  -m 8192M -machine usb=on -device usb-tablet > /dev/null 2>&1
 sleep 43200
 
