@@ -5,9 +5,8 @@ echo "Download windows files"
 curl -L -o android.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
 echo "Wait..."
 echo "I m Working Now.."
-wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
-chmod +x ng.sh
-./ng.sh
+read -p "Paste authtoken here (Copy and Ctrl+V to paste then press Enter): " CRP
+./ngrok authtoken $CRP
 clear
 echo "======================="
 echo choose ngrok region
