@@ -2,7 +2,7 @@
 # Make Instance Ready for Remote Desktop or RDP
 apt-get update
 echo "Download windows files"
-curl -L -o android.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.3/providers/qemu.box
+curl -L -o android.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
 echo "Wait..."
 echo "I m Working Now.."
 wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
@@ -32,7 +32,7 @@ echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "===================================="
 echo "Username: Administrator"
-echo "Password: Lingg@H0sting"
+echo "Password: Thuonghai001"
 echo "===================================="
 echo "===================================="
 echo "Don't closse this Tab"
