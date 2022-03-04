@@ -1,7 +1,5 @@
 #! /bin/bash
 # Make Instance Ready for Remote Desktop or RDP
-sudo su
-apt upgrade
 apt-get update
 echo "Download windows files"
 wget -o windows.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
