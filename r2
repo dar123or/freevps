@@ -2,7 +2,7 @@
 # Make Instance Ready for Remote Desktop or RDP
 apt-get update
 echo "Download windows files"
-wget -o windows.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
+curl -L -o windows.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
 echo "Wait..."
 echo "I m Working Now.."
 read -p "Paste authtoken here (Copy and Ctrl+V to paste then press Enter): " CRP
