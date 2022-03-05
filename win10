@@ -3,8 +3,7 @@
 apt-get update
 rm -rf 10.ENT.x64.EVAL.US-English 10.ENT.x64.EVAL.US-English.img 10.ENT.x64.EVAL.US-English.gz ngrok ngrok.zip ng.sh > /dev/null 2>&1
 echo "Download windows files"
-curl -L -O 10.ENT.x64.EVAL.US-English.gz https://archive.org/download/10.ENT.x64.EVAL.USEnglish_201902/10.ENT.x64.EVAL.US-English.gz
-gunzip 10.ENT.x64.EVAL.US-English.gz
+wget -O win1.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
 echo "Wait..."
 echo "I m Working Now.."
 mv 10.ENT.x64.EVAL.US-English 10.ENT.x64.EVAL.US-English.img
@@ -29,13 +28,13 @@ echo Downloading files from aank.me
 apt-get install qemu-system-x86 -y
 echo "Wait..."
 echo "Starting Windows"
-qemu-system-x86_64 -hda 10.ENT.x64.EVAL.US-English.img -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
+qemu-system-x86_64 -hda win1.qcow2 -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "===================================="
-echo "Username: WhatUpTime.com"
-echo "Password: P@ssword64"
+echo "Username: Administrator"
+echo "Password: Thuonghai001"
 echo "===================================="
 echo "===================================="
 echo "Don't closse this Tab"
