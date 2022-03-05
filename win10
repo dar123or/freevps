@@ -3,7 +3,7 @@
 apt-get update
 rm -rf 10.ENT.x64.EVAL.US-English 10.ENT.x64.EVAL.US-English.img 10.ENT.x64.EVAL.US-English.gz ngrok ngrok.zip ng.sh > /dev/null 2>&1
 echo "Download windows files"
-wget -O win1.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
+wget -O win1.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.1.0/providers/qemu.box
 echo "Wait..."
 echo "I m Working Now.."
 mv 10.ENT.x64.EVAL.US-English 10.ENT.x64.EVAL.US-English.img
