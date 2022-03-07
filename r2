@@ -2,11 +2,12 @@
 # Make Instance Ready for Remote Desktop or RDP
 apt-get update
 echo "Download windows files"
-curl -L -o windows.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.1/providers/qemu.box
+wget -o windows.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.7/providers/qemu.box
 echo "Wait..."
 echo "I m Working Now.."
-read -p "Paste authtoken here (Copy and Ctrl+V to paste then press Enter): " CRP
-./ngrok authtoken $CRP
+wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
+chmod +x ng.sh
+./ng.sh
 clear
 echo "======================="
 echo choose ngrok region
