@@ -15,7 +15,9 @@ echo "in - India (Mumbai)"
 read -p "choose ngrok region: " CRP
 ./ngrok tcp --region $CRP 3388 &>/dev/null &
 clear
-echo Downloading files from aank.me
+echo Downloading files
+apt update
+apt upgrade -y
 apt-get install qemu-system-x86 -y
 echo "Wait..."
 echo "Starting Windows"
