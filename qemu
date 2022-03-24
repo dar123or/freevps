@@ -15,22 +15,24 @@ echo "in - India (Mumbai)"
 read -p "choose ngrok region: " CRP
 ./ngrok tcp --region $CRP 3388 &>/dev/null &
 clear
-echo Downloading files
+echo mendownload file yang dibutuh kan
+sleep 5
 apt update
 apt upgrade -y
 apt install qemu-system -y
-echo "Wait..."
+echo "tunggu..."
 echo "Starting Windows"
-qemu-system-x86_64 windows_name.img -boot d -cdrom "Windows_Server_2016_Datacenter_EVAL_en-us_14393_refresh.ISO" -m 8G -smp cores=4 -cpu phenom -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
+qemu-system-x86_64 -hda lite11.qcow2 -m 8G -smp cores=4 -cpu phenom -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "===================================="
 echo "Username: Administrator"
-echo "Password: magalih123@+"
+echo "Password: Thuonghai001"
 echo "===================================="
 echo "===================================="
-echo "Starting Windows"
+echo "menyetart windows ....."
+echo "GETTING WINDOWS READY....."
 sleep 70
 echo "Berhasil"
 echo "Sekarang Anda Bisa MengKoneksi Rdp Anda"
