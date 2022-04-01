@@ -15,14 +15,13 @@ echo "in - India (Mumbai)"
 read -p "choose ngrok region: " CRP
 ./ngrok tcp --region $CRP 3389 &>/dev/null &
 clear
-echo mendownload file yang dibutuh kan
-sleep 5
+echo Update & Install
 apt update
 apt upgrade -y
 apt install qemu-system -y
 echo "tunggu..."
 echo "Starting Windows"
-qemu-system-x86_64 -hda windows2012.qcow2 -m 8G -smp cores=6 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
+qemu-system-x86_64 -hda 10.ENT.x64.EVAL.US-English.img -m 8G -smp cores=6 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 sleep 5
 clear
 echo RDP Address:
@@ -40,4 +39,4 @@ echo "Sekarang Anda Bisa MengKoneksi Rdp Anda"
 echo "Jangan Keluar Dari Tab"
 echo "RDP Berjalan Dalam 50 Jam"
 echo "Rdp Dibuat Oleh AJI MAGALIH"
-sleep 43200
+sleep 4320011
