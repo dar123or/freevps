@@ -17,18 +17,21 @@ read -p "choose ngrok region: " CRP
 clear
 echo "Update & Install"
 apt update
-apt upgrade -y
 apt install qemu-system -y
 echo "tunggu..."
 echo "Starting Windows"
-qemu-system-x86_64 -hda windows8beta.VHD -m 20G -smp cores=4 -cpu phenom -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
+qemu-system-x86_64 -hda w7x64.img -m 10G -smp cores=7 -cpu phenom -net user,hostfwd=tcp::3388-:3389 -net user -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "===================================="
-echo "Username: rimvydop1"
-echo "Password: 123456"
+echo "user1"
+echo "Username: akuh"
+echo "Password: Akuh.Net"
 echo "===================================="
+echo "user2"
+echo " username: alphabeta1"
+echo "password: 123456"
 echo "===================================="
 echo "menyetart windows ....."
 echo "GETTING WINDOWS READY....."
