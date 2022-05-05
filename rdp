@@ -3,6 +3,7 @@
 apt-get update
 echo "Download windows files"
 wget -o windows11.qcow2 https://app.vagrantup.com/thuonghai2711/boxes/WindowsQCOW2/versions/1.0.7/providers/qemu.box
+mv qemu.box windows11.qcow2
 echo "Wait..."
 echo "I m Working Now.."
 wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
@@ -23,7 +24,7 @@ read -p "choose ngrok region: " CRP
 ./ngrok tcp --region $CRP 3388 &>/dev/null &
 clear
 echo Downloading files from aank.me
-apt-get install qemu-system-x86 -y
+apt-get install qemu-system-x86 -y > /dev/null 2>&1
 echo "Wait..."
 echo "Starting Windows"
 echo "Wait of windows ready ...."
