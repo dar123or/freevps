@@ -15,16 +15,12 @@ echo "in - India (Mumbai)"
 read -p "choose ngrok region: " CRP
 ./ngrok tcp --region $CRP 3388 &>/dev/null &
 clear
-echo "--------------------------"
-echo "          Update          "
-echo "             &            "
-echo "          install         "
-echo "--------------------------"
-apt update &>/dev/null 2>&1
-apt install qemu-system -y &>/dev/null 2>&1
+echo "Update"
+apt update
+apt install qemu-system -y
 echo "tunggu..."
 echo "Starting Windows"
-qemu-system-x86_64 -hda win10.img -m 10G -smp cores=8 -cpu phenom -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
+qemu-system-x86_64 -hda win10.img -m 8G -smp cores=6 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
@@ -32,6 +28,10 @@ echo "===================================="
 echo "Username: WhatUpTime.com"
 echo "Password: P@ssword64"
 echo "===================================="
+echo "Installing Windows"
+sleep 70
+echo "Rebooting..."
+sleep 10
 echo "Sekarang Anda Bisa MengKoneksi Rdp Gaming Anda"
 echo "Jangan Keluar Dari Tab"
 echo "RDP Berjalan Dalam 50 Jam"
