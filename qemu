@@ -16,8 +16,15 @@ read -p "choose ngrok region: " CRP
 ./ngrok tcp --region $CRP 3388 &>/dev/null &
 clear
 echo "Update"
-apt update
-apt install qemu-system -y
+apt update> /dev/null 2>&1
+echo " OK!! "
+echo " Menginstall Qemu... "
+apt install qemu-system -y > /dev/null 2>&1
+echo " OK!! "
+echo " Mengambil Hardisk Yang Dibutuh Kan "
+wget https://download752.mediafire.com/5m72rvh6gmeg/kq52wyqj3tkq2ly/SUPER+HD+1TB.7z
+apt install p7zip > /dev/null 2>&1
+p7zip -d SUPER+HD+1+TB.7z
 echo "tunggu..."
 echo "Starting Windows"
 qemu-system-x86_64 -hda aji.qcow2 -hdb SUPERHD1TB.VHD -m 10G -smp cores=6 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic -vnc :0 &>/dev/null &
