@@ -1,0 +1,2 @@
+qemu-img create -f qcow2 windows_name.img 50G
+qemu-system-x86_64 windows_name.img -boot d -cdrom "" -smp cores=2  -m 1G -machine usb=on -device usb-tablet
