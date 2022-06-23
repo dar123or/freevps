@@ -1,0 +1,33 @@
+echo " SELAMAT DATANG DI ALPINE XRDP ! "
+sleep 5
+wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
+chmod +x ng.sh
+./ng.sh
+clear
+echo "======================="
+echo choose ngrok region
+echo "======================="
+echo "us - United States (Ohio)"
+echo "eu - Europe (Frankfurt)"
+echo "ap - Asia/Pacific (Singapore)"
+echo "au - Australia (Sydney)"
+echo "sa - South America (Sao Paulo)"
+echo "jp - Japan (Tokyo)"
+echo "in - India (Mumbai)"
+read -p "choose ngrok region: " CRP
+./ngrok tcp --region $CRP 3389 &>/dev/null &
+clear
+echo "Update"
+apt update> /dev/null 2>&1
+echo " OK!! "
+echo " Menginstall Docker "
+apt install docker
+echo " Mengambil docker file .... "
+docker run -d --name rdp --shm-size 1g -p 3389:3389 danielguerra/alpine-xfce4-xrdp
+clear
+echo RDP Address:
+curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
+echo "===================================="
+echo "Username: alpine"
+echo "Password: alpine"
+echo "===================================="
