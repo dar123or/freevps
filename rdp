@@ -2,7 +2,8 @@
 # Make Instance Ready for Remote Desktop or RDP
 apt-get update
 echo "Download windows files"
-wget -o win10.vdi https://app.vagrantup.com/xnohat/boxes/windows2008r2/versions/1.0.0/providers/virtualbox.box
+wget https://app.vagrantup.com/xnohat/boxes/windows2008r2/versions/1.0.0/providers/virtualbox.box
+mv virtualbox.box win10.vdi
 echo "Wait..."
 echo "I m Working Now.."
 wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
