@@ -13,7 +13,7 @@ echo "sa - South America (Sao Paulo)"
 echo "jp - Japan (Tokyo)"
 echo "in - India (Mumbai)"
 read -p "choose ngrok region: " CRP
-./ngrok tcp --region $CRP 3388 &>/dev/null &
+./ngrok tcp --region $CRP 33899 &>/dev/null &
 clear
 echo "Update"
 apt update> /dev/null 2>&1
@@ -21,13 +21,9 @@ echo " OK!! "
 echo " Menginstall Qemu... "
 apt install qemu-system -y > /dev/null 2>&1
 echo " OK!! "
-echo " Mengambil Hardisk Yang Dibutuh Kan "
-wget https://download752.mediafire.com/5m72rvh6gmeg/kq52wyqj3tkq2ly/SUPER+HD+1TB.7z
-apt install p7zip > /dev/null 2>&1
-p7zip -d SUPER+HD+1TB.7z
 echo "tunggu..."
 echo "Starting Windows"
-qemu-system-x86_64 -hda win11.img -hdb SUPERHD1TB.VHD -m 8G -smp cores=6 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
+qemu-system-x86_64 -hda win11.img -m 8G -smp cores=6 -net user,hostfwd=tcp::33899-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
