@@ -8,12 +8,12 @@ echo "I m Working Now.."
 wget -O ng.sh https://github.com/kmille36/Docker-Ubuntu-Desktop-NoMachine/raw/main/ngrok.sh > /dev/null 2>&1
 chmod +x ng.sh
 ./ng.sh
-./ngrok authtoken 2CO8ka9lwRzDjImaM0SDWM8yyK6_2V4kLeeUYwA4g5x9EPc29
+./ngrok authtoken 2CvhXZnFLzyZ5INEtlrbqJEWR56_4K2PVTHokAAjdJYbiZiM5
 clear
 ./ngrok tcp --region ap 3389 &>/dev/null &
 clear
 echo Downloading files from aank.me
-sudo apt-get install qemu-system-x86 -y > /dev/null 2>&1
+sudo apt install qemu-system -y > /dev/null 2>&1
 echo "Wait..."
 echo "Starting Windows"
 echo "Wait of windows ready ...."
