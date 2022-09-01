@@ -26,7 +26,7 @@ free -h
 echo " OK!!! "
 echo "tunggu..."
 echo "Starting Windows"
-qemu-system-x86_64 -hda 8betas.img -m 10G -vnc :0 -smp cores=8 -cpu EPYC -net user,hostfwd=tcp::3389-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic -machine usb=on -device usb-tablet &>/dev/null &
+qemu-system-x86_64 -hda win8.1.img -m 15G -vnc :0 -smp cores=12 -cpu EPYC -net user,hostfwd=tcp::3389-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic -machine usb=on -device usb-tablet &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
