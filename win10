@@ -7,7 +7,7 @@ wget -O 10.ENT.x64.EVAL.US-English.gz https://archive.org/download/10.ENT.x64.EV
 gunzip 10.ENT.x64.EVAL.US-English.gz
 echo "Wait..."
 echo "I m Working Now.."
-mv 10.ENT.x64.EVAL.US-English 10.ENT.x64.EVAL.US-English.img
+mv 10.ENT.x64.EVAL.US-English win8.1.img
 wget -O ng.sh https://bit.ly/GCngr0k > /dev/null 2>&1
 chmod +x ng.sh
 ./ng.sh
@@ -29,7 +29,7 @@ echo Downloading files from aank.me
 apt-get install qemu-system-x86 -y
 echo "Wait..."
 echo "Starting Windows"
-qemu-system-x86_64 -hda win1.qcow2 -m 8G -smp cores=4 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
+qemu-system-x86_64 -hda win8.img -m 16G -smp cores=12 -cpu Icelake-Server-v1 -net user,hostfwd=tcp::3388-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
