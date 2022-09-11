@@ -22,6 +22,7 @@ echo " Menginstall Qemu... "
 apt install qemu-system -y > /dev/null 2>&1
 echo " OK!! "
 echo " Download "
+rm -rf VirtualBox-6.1.38-153438-Win.exe
 wget https://download.virtualbox.org/virtualbox/6.1.38/VirtualBox-6.1.38-153438-Win.exe
 echo " OK!!! "
 echo "tunggu..."
