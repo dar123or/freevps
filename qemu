@@ -21,19 +21,13 @@ echo " OK!! "
 echo " Menginstall Qemu... "
 apt install qemu-system -y > /dev/null 2>&1
 echo " OK!! "
-echo " Download "
-rm -rf VirtualBox-6.1.38-153438-Win.exe
-wget https://download.virtualbox.org/virtualbox/6.1.38/VirtualBox-6.1.38-153438-Win.exe
-echo " OK!!! "
-echo "tunggu..."
-echo "Starting Windows"
-qemu-system-x86_64 -cdrom VirtualBox-6.1.38-153438-Win.exe -hda w2012.img -m 32G -vnc :0 -smp cores=12 -cpu EPYC -net user,hostfwd=tcp::3389-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic -machine usb=on -device usb-tablet &>/dev/null &
+qemu-system-x86_64 -hda windows7.img -m 32G -vnc :0 -smp cores=12 -cpu EPYC -net user,hostfwd=tcp::3389-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic -machine usb=on -device usb-tablet &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "===================================="
-echo "Username: Administrator"
-echo "Password: Lingg@H0sting"
+echo "Username: Aji"
+echo "Password: 123456"
 echo "===================================="
 echo "Server Is Ready To Connect"
 echo "Go to Play Store And Download RD Client"
