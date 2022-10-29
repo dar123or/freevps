@@ -23,13 +23,13 @@ echo " OK!! "
 echo " Menginstall Qemu... "
 apt install qemu-system -y > /dev/null 2>&1
 echo " OK!! "
-qemu-system-x86_64 -hda OS.qcow2 -m 16G -vnc :0 -smp cores=8 -cpu Cascadelake-Server-v1 -net user,hostfwd=tcp::3389-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic -machine usb=on -device usb-tablet &>/dev/null &
+qemu-system-x86_64 -hda windows_name.img -m 16G -vnc :0 -smp cores=8 -cpu EPYC -net user,hostfwd=tcp::3389-:3389 -net nic -object rng-random,id=rng0,filename=/dev/urandom -device virtio-rng-pci,rng=rng0 -vga vmware -nographic -machine usb=on -device usb-tablet &>/dev/null &
 clear
 echo RDP Address:
 curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"tcp:..([^"]*).*/\1/p'
 echo "===================================="
-echo "Username: Administrator"
-echo "Password: Thuonghai001"
+echo "Username: g1yum1@outlook.com"
+echo "Password: aji123@+"
 echo "===================================="
 echo "Server Is Ready To Connect"
 echo "Go to Play Store And Download RD Client"
